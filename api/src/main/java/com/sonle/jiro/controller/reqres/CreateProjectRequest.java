@@ -4,14 +4,12 @@ import java.util.List;
 
 public class CreateProjectRequest {
     private String projectName;
-    private List<String> statusNames;
 
     private CreateProjectRequest() {
     }
 
-    public CreateProjectRequest(String projectName, List<String> statusNames) {
+    public CreateProjectRequest(String projectName) {
         this.projectName = projectName;
-        this.statusNames = statusNames;
     }
 
     public String getProjectName() {
@@ -20,13 +18,5 @@ public class CreateProjectRequest {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
-    }
-
-    public List<String> getStatusNames() {
-        return statusNames;
-    }
-
-    public void setStatusNames(List<String> statusNames) {
-        this.statusNames = statusNames;
     }
 }

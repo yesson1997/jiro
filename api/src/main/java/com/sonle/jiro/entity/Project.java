@@ -1,6 +1,7 @@
 package com.sonle.jiro.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -12,17 +13,15 @@ public class Project {
     private Long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private List<Issue> issues;
+    private LocalDateTime createdAt;
 
     public Project() {
     }
 
-    public Project(Long id, String name, List<Issue> issues) {
+    public Project(Long id, String name, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
-        this.issues = issues;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -41,11 +40,11 @@ public class Project {
         this.name = name;
     }
 
-    public List<Issue> getIssues() {
-        return issues;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setIssues(List<Issue> issues) {
-        this.issues = issues;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

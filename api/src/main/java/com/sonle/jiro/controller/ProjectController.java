@@ -2,6 +2,7 @@ package com.sonle.jiro.controller;
 
 import com.sonle.jiro.controller.reqres.CreateIssueRequest;
 import com.sonle.jiro.controller.reqres.CreateProjectRequest;
+import com.sonle.jiro.controller.reqres.UpdateIssueRequest;
 import com.sonle.jiro.entity.Issue;
 import com.sonle.jiro.entity.Project;
 import com.sonle.jiro.service.IssueService;
@@ -56,5 +57,10 @@ public class ProjectController {
     @PostMapping("/{projectId}/issues")
     public ResponseEntity<Issue> createIssue(@PathVariable Long projectId, @RequestBody CreateIssueRequest request) {
         return ResponseEntity.ok(issueService.create(projectId, request.getTitle()));
+    }
+
+    @PutMapping("/{projectId}/issues/{issueId}")
+    public ResponseEntity<Issue> updateIssue(@RequestBody UpdateIssueRequest request, @PathVariable Long projectId, @PathVariable Long issueId) {
+        return ResponseEntity.ok(issueService.update(request, projectId, issueId));
     }
 }

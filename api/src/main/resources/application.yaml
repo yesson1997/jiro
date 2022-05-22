@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: postgresql://localhost:5432/jiro
+    url: jdbc:postgresql://localhost:5432/jiro2
     username: ucemuser
     password: ucempw
   jpa:

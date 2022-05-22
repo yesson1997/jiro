@@ -13,20 +13,25 @@ public class Issue {
 
     private String title;
 
-    @Column(name = "project_id")
-    private Long projectId;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(name = "list_position")
+    private Double listPosition;
+
     public Issue() {
     }
 
-    public Issue(Long id, String title, Long projectId, Status status) {
+    public Issue(Long id, String title, Project project, Status status, Double listPosition) {
         this.id = id;
         this.title = title;
-        this.projectId = projectId;
+        this.project = project;
         this.status = status;
+        this.listPosition = listPosition;
     }
 
     public Long getId() {
@@ -45,12 +50,12 @@ public class Issue {
         this.title = title;
     }
 
-    public Long getProjectId() {
-        return projectId;
+    public Project getProject() {
+        return project;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public Status getStatus() {
@@ -59,5 +64,13 @@ public class Issue {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Double getListPosition() {
+        return listPosition;
+    }
+
+    public void setListPosition(Double listPosition) {
+        this.listPosition = listPosition;
     }
 }
